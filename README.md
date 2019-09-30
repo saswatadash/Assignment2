@@ -1,4 +1,2 @@
-# task
-
-TODO: Enter the cookbook description here.
+This cookbook consists of recipes which installs ntp and cups service, adds DNS entries and sets the timezone of the host to UTC. 
 
