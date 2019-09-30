@@ -15,10 +15,6 @@ describe service('ntp') do
   it { should be_running }
 end
 
-describe port(11_211) do
-  it { should be_listening }
-end
-
 # This control ensures that the cups service is disabled
 
 describe service 'cups' do
