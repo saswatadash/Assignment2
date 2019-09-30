@@ -3,14 +3,30 @@
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://www.inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+# This controls checks if the ntp is installed, enabled and running
+
+describe package('ntp') do
+  it { should be_installed }
+end 
+
+describe service('ntp') do
+  it { should be_installed }
+  it { should be_enabled }
+  it { should be_running }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe port(11_211) do
+  it { should be_listening }
 end
+
+# This control ensures that the cups service is disabled
+
+describe service 'cups' do
+  it { should be_disabled }
+end
+
+# This control ensures that the timezone is set to UTC
+
+describe 'timezone' do
+  it { should be_running }
+end 
